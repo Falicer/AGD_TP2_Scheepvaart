@@ -52,9 +52,8 @@ public class BackgroundChanger : MonoBehaviour
             howtoplay.SetActive(true);
             backButton.SetActive(false);
         }else if(homescreencounter == 4){
-            howtoplay.SetActive(false);
-            verderButton.SetActive(false);
             SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
+            verderButton.SetActive(false);
         }else{
             homescreencounter = 0;
         }
@@ -68,5 +67,9 @@ public class BackgroundChanger : MonoBehaviour
     public void counterDown(){
         homescreencounter--;
         Debug.Log("up");
+    }
+
+    public void QuitGame(){
+        Application.Quit();
     }
 }
