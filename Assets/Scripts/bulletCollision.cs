@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class bulletCollision : MonoBehaviour
 {
+    GameObject playerFinder;
 
     void Start(){
         StartCoroutine(WaitAndDestory(3.0f));
-        //GameObject playerFinder = GameObject.Find("Dutchship")
+        playerFinder = GameObject.Find("BackgroundController");
     }
  
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.name == "Britishship")
         {
-            collision.gameObject.GetComponent<boatCollision>().currentPlayer++;
+            //collision.gameObject.GetComponent<boatCollision>().currentPlayer++;
             Debug.Log("Collision2");
             DestroyBullet();
         }else if(collision.gameObject.name == "Dutchship")
         {
-            collision.gameObject.GetComponent<boatCollision>().currentPlayer++;
+            //collision.gameObject.GetComponent<boatCollision>().currentPlayer++;
             Debug.Log("Collision");
             DestroyBullet();
         }
@@ -42,7 +43,7 @@ public class bulletCollision : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         Debug.Log("Waited for " + waitTime + " seconds");
         Destroy(gameObject);
-        //playerFinder.GetComponent<boatCollision>().currentPlayer++;
+        playerFinder.GetComponent<playerBehavior>().startingPlayer++;
     }
 
     private void DestroyBullet()
