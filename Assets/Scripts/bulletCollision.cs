@@ -12,11 +12,13 @@ public class bulletCollision : MonoBehaviour
     void Start(){
         StartCoroutine(WaitAndDestory(3.0f));
         playerFinder = GameObject.Find("BackgroundController");
+        audioSource = GameObject.Find("BackgroundController").GetComponent<AudioSource>();
         audioSource.PlayOneShot(clip, volume);
     }
  
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        audioSource.Stop();
         if(collision.gameObject.name == "Britishship")
         {
             //collision.gameObject.GetComponent<boatCollision>().currentPlayer++;
@@ -52,6 +54,7 @@ public class bulletCollision : MonoBehaviour
         Debug.Log("Waited for " + waitTime + " seconds");
         Destroy(gameObject);
         playerFinder.GetComponent<playerBehavior>().startingPlayer++;
+        audioSource.Stop();
     }
 
     private void DestroyBullet()
