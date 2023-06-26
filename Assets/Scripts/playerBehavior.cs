@@ -15,10 +15,20 @@ public class playerBehavior : MonoBehaviour
     PolygonCollider2D britShipCollider;
     //int starterDetection;
 
+    public AudioSource audioSource;
+    public AudioClip backgroundMusic;
+    public float volume = 0.5f;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true; 
         dutchShipCollider = dutchShip.GetComponent<PolygonCollider2D>();
         britShipCollider = britShip.GetComponent<PolygonCollider2D>();
+    }
+
+    void Awake(){   
+        audioSource.PlayOneShot(backgroundMusic, volume);
     }
 
     // Update is called once per frame

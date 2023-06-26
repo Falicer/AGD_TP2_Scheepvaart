@@ -12,8 +12,8 @@ public class bulletCollision : MonoBehaviour
     void Start(){
         StartCoroutine(WaitAndDestory(3.0f));
         playerFinder = GameObject.Find("BackgroundController");
-        audioSource = GameObject.Find("BackgroundController").GetComponent<AudioSource>();
-        audioSource.PlayOneShot(clip, volume);
+        //audioSource = GameObject.Find("BackgroundController").GetComponent<AudioSource>();
+        //audioSource.PlayOneShot(clip, volume);
     }
  
     private void OnCollisionEnter2D(Collision2D collision)

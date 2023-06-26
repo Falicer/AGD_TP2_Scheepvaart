@@ -11,6 +11,7 @@ public class BackgroundChanger : MonoBehaviour
     public GameObject howtoplay;
     public GameObject verderButton;
     public GameObject backButton;
+
     public int homescreencounter = 0;
     public string gameScene = "CombatScene";
 
