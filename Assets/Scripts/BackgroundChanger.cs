@@ -14,6 +14,7 @@ public class BackgroundChanger : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip backgroundMusic;
+    public float volume = 0.5f;
 
     public int homescreencounter = 0;
     public string gameScene = "CombatScene";
@@ -70,12 +71,10 @@ public class BackgroundChanger : MonoBehaviour
 
     public void counterUp(){
         homescreencounter++;
-        Debug.Log("up");
     }
 
     public void counterDown(){
         homescreencounter--;
-        Debug.Log("up");
     }
 
     public void QuitGame(){
