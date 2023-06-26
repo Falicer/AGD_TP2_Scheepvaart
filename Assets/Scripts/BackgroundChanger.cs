@@ -22,8 +22,11 @@ public class BackgroundChanger : MonoBehaviour
     public AudioClip backgroundMusic;
     public float volume = 0.5f;
 
-    public static int homescreencounter = 0;
+    public static int homescreencounter = 6;
     public string gameScene = "CombatScene";
+
+    private float nextActionTime = 0.0f;
+    public float period = 1f;
 
     void Start()
     {
@@ -35,6 +38,20 @@ public class BackgroundChanger : MonoBehaviour
     void Update()
     {
         BackgroundChange();
+
+        if(homescreencounter == 7 || homescreencounter == 10){
+            if (Time.time > nextActionTime ) {
+            nextActionTime += period;
+            // execute block of code here
+
+            if(nextActionTime >= 20){
+                Debug.Log("Game Start!");
+                SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
+            }
+            }
+        }else{
+            nextActionTime = 0;
+        }
     }
 
     void Awake(){   
@@ -183,8 +200,7 @@ public class BackgroundChanger : MonoBehaviour
         if(homescreencounter == 4){
             
         }else if(homescreencounter == 7 || homescreencounter == 10){
-            SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
-            verderButton.SetActive(false);
+            homescreencounter = 0;
         }
         else{
         homescreencounter++;
