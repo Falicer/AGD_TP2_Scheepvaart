@@ -22,7 +22,7 @@ public class BackgroundChanger : MonoBehaviour
     public AudioClip backgroundMusic;
     public float volume = 0.5f;
 
-    public static int homescreencounter = 6;
+    public static int homescreencounter = 0;
     public string gameScene = "CombatScene";
 
     private float nextActionTime = 0.0f;
@@ -44,10 +44,10 @@ public class BackgroundChanger : MonoBehaviour
             nextActionTime += period;
             // execute block of code here
 
-            if(nextActionTime >= 20){
-                Debug.Log("Game Start!");
-                SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
-            }
+                if(nextActionTime >= 50){
+                    Debug.Log("Game Start!");
+                    SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
+                }
             }
         }else{
             nextActionTime = 0;
