@@ -34,7 +34,7 @@ public class boatCollision : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         hitAmount++;
-        cs.startingPlayer++;
+        //cs.startingPlayer++;
     }
 
     private void timesHit(){

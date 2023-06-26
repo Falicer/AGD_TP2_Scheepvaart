@@ -10,7 +10,7 @@ public class bulletCollision : MonoBehaviour
     public float volume=0.5f;
 
     void Start(){
-        StartCoroutine(WaitAndDestory(3.0f));
+        StartCoroutine(WaitAndDestroy(3.0f));
         playerFinder = GameObject.Find("BackgroundController");
         //audioSource = GameObject.Find("BackgroundController").GetComponent<AudioSource>();
         //audioSource.PlayOneShot(clip, volume);
@@ -18,21 +18,10 @@ public class bulletCollision : MonoBehaviour
  
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        audioSource.Stop();
-        if(collision.gameObject.name == "Britishship")
-        {
-            //collision.gameObject.GetComponent<boatCollision>().currentPlayer++;
-            Debug.Log("Collision2");
-            DestroyBullet();
-        }else if(collision.gameObject.name == "Dutchship")
-        {
-            //collision.gameObject.GetComponent<boatCollision>().currentPlayer++;
-            Debug.Log("Collision");
-            DestroyBullet();
-        }else{
-            Destroy(gameObject);
-            playerFinder.GetComponent<playerBehavior>().startingPlayer++;
-        }
+        //audioSource.Stop();
+        Debug.Log("Collision");
+        Destroy(gameObject);
+        playerFinder.GetComponent<playerBehavior>().startingPlayer++;
 
     }
 
@@ -48,13 +37,13 @@ public class bulletCollision : MonoBehaviour
         
     }
 
-    private IEnumerator WaitAndDestory(float waitTime)
+    private IEnumerator WaitAndDestroy(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         Debug.Log("Waited for " + waitTime + " seconds");
         Destroy(gameObject);
         playerFinder.GetComponent<playerBehavior>().startingPlayer++;
-        audioSource.Stop();
+        //audioSource.Stop();
     }
 
     private void DestroyBullet()
