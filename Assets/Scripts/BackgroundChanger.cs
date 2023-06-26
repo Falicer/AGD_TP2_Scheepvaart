@@ -181,6 +181,7 @@ public class BackgroundChanger : MonoBehaviour
 
     public void counterUp(){
         if(homescreencounter == 4){
+            
         }else if(homescreencounter == 7 || homescreencounter == 10){
             SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
             verderButton.SetActive(false);
