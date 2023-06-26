@@ -12,18 +12,26 @@ public class BackgroundChanger : MonoBehaviour
     public GameObject verderButton;
     public GameObject backButton;
 
+    public AudioSource audioSource;
+    public AudioClip backgroundMusic;
+
     public int homescreencounter = 0;
     public string gameScene = "CombatScene";
 
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true; 
     }
 
     // Update is called once per frame
     void Update()
     {
         BackgroundChange();
+    }
+
+    void Awake(){   
+        audioSource.PlayOneShot(backgroundMusic, volume);
     }
 
     public void BackgroundChange(){

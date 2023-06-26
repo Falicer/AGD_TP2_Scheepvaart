@@ -13,11 +13,15 @@ public class playerBehavior : MonoBehaviour
     public GameObject britCannon;
     PolygonCollider2D dutchShipCollider;
     PolygonCollider2D britShipCollider;
+    public string mainMenu;
     //int starterDetection;
 
     public AudioSource audioSource;
     public AudioClip backgroundMusic;
     public float volume = 0.5f;
+
+    private float nextActionTime = 0.0f;
+    public float period = 1f;
 
     void Start()
     {
@@ -34,7 +38,28 @@ public class playerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.anyKey){
+            nextActionTime = 0;
+        }
+
+        if (Time.time > nextActionTime ) {
+            nextActionTime += period;
+            // execute block of code here
+
+            if(nextActionTime == 150){
+                Debug.Log("Half-time");
+            }
+
+            if(nextActionTime >= 300){
+                Debug.Log("Afk Timed");
+                SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
+            }
+            
+        }
+
         playerDetection();
+
+
     }
 
     void playerDetection(){
@@ -53,6 +78,7 @@ public class playerBehavior : MonoBehaviour
             startingPlayer = 1;
         }
     }
+
 
     // private void OnCollisionEnter2D(Collision2D collision)
     // {
