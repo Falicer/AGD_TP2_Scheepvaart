@@ -51,6 +51,11 @@ public class boatCollision : MonoBehaviour
             boatsmokeRenderer.color = new Color(1f,1f,1f,0f);
             boatsmoke2Renderer.color = new Color(1f,1f,1f,1f);
         }else if(hitAmount == 3){
+            if(gameObject.name == "Dutchship"){
+                BackgroundChanger.homescreencounter = 8;
+            }else if(gameObject.name == "Britishship"){
+                BackgroundChanger.homescreencounter = 5;
+            }
             SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
         }
     }
