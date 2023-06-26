@@ -46,7 +46,7 @@ public class BackgroundChanger : MonoBehaviour
 
             if(nextActionTime >= 20){
                 Debug.Log("Game Start!");
-                SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
+                SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
             }
             }
         }else{
@@ -200,7 +200,7 @@ public class BackgroundChanger : MonoBehaviour
         if(homescreencounter == 4){
             
         }else if(homescreencounter == 7 || homescreencounter == 10){
-            homescreencounter = 0;
+            homescreencounter = 0; 
         }
         else{
         homescreencounter++;
