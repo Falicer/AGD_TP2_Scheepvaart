@@ -102,87 +102,85 @@ public class BackgroundChanger : MonoBehaviour
             disclaimer.SetActive(false);
             slagbijsolbay.SetActive(false);
             howtoplay.SetActive(false);
-            backButton.SetActive(false);
-            verderButton.SetActive(true);
             dutchWin.SetActive(true);
             dutchWhatif.SetActive(false);
             dutchWait.SetActive(false);
             britWin.SetActive(false);
             britWhatif.SetActive(false);
             britWait.SetActive(false);
+            backButton.SetActive(false);
+            verderButton.SetActive(true);
         }else if(homescreencounter == 6){
             homescreen.SetActive(false);
             disclaimer.SetActive(false);
             slagbijsolbay.SetActive(false);
             howtoplay.SetActive(false);
-            backButton.SetActive(false);
-            verderButton.SetActive(true);
             dutchWin.SetActive(false);
             dutchWhatif.SetActive(true);
             dutchWait.SetActive(false);
             britWin.SetActive(false);
             britWhatif.SetActive(false);
             britWait.SetActive(false);
+            backButton.SetActive(false);
+            verderButton.SetActive(true);
         }else if(homescreencounter == 7){
             homescreen.SetActive(false);
             disclaimer.SetActive(false);
             slagbijsolbay.SetActive(false);
             howtoplay.SetActive(false);
-            backButton.SetActive(false);
-            verderButton.SetActive(true);
             dutchWin.SetActive(false);
             dutchWhatif.SetActive(false);
             dutchWait.SetActive(true);
             britWin.SetActive(false);
             britWhatif.SetActive(false);
             britWait.SetActive(false);
+            backButton.SetActive(false);
+            verderButton.SetActive(true);
         }else if(homescreencounter == 8){
             homescreen.SetActive(false);
             disclaimer.SetActive(false);
             slagbijsolbay.SetActive(false);
             howtoplay.SetActive(false);
-            backButton.SetActive(false);
-            verderButton.SetActive(true);
             dutchWin.SetActive(false);
             dutchWhatif.SetActive(false);
             dutchWait.SetActive(false);
             britWin.SetActive(true);
             britWhatif.SetActive(false);
             britWait.SetActive(false);
+            backButton.SetActive(false);
+            verderButton.SetActive(true);
         }else if(homescreencounter == 9){
             homescreen.SetActive(false);
             disclaimer.SetActive(false);
             slagbijsolbay.SetActive(false);
             howtoplay.SetActive(false);
-            backButton.SetActive(false);
-            verderButton.SetActive(true);
             dutchWin.SetActive(false);
             dutchWhatif.SetActive(false);
             dutchWait.SetActive(false);
             britWin.SetActive(false);
             britWhatif.SetActive(true);
             britWait.SetActive(false);
+            backButton.SetActive(false);
+            verderButton.SetActive(true);
         }else if(homescreencounter == 10){
             homescreen.SetActive(false);
             disclaimer.SetActive(false);
             slagbijsolbay.SetActive(false);
             howtoplay.SetActive(false);
-            backButton.SetActive(false);
-            verderButton.SetActive(true);
             dutchWin.SetActive(false);
             dutchWhatif.SetActive(false);
             britWin.SetActive(false);
             britWhatif.SetActive(false);
             britWait.SetActive(true);
-        }
-        else{
+            backButton.SetActive(false);
+            verderButton.SetActive(true);
+        }else{
             homescreencounter = 0;
         }
     }
 
     public void counterUp(){
         if(homescreencounter == 4){
-
         }else if(homescreencounter == 7 || homescreencounter == 10){
             SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
             verderButton.SetActive(false);
@@ -194,9 +192,5 @@ public class BackgroundChanger : MonoBehaviour
 
     public void counterDown(){
         homescreencounter--;
-    }
-
-    public void QuitGame(){
-        Application.Quit();
     }
 }
