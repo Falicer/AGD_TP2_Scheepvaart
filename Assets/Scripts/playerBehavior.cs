@@ -51,6 +51,7 @@ public class playerBehavior : MonoBehaviour
 
             if(nextActionTime >= 300){
                 SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
+                nextActionTime = 0;
             }  
         }
 

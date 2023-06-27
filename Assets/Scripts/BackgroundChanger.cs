@@ -25,8 +25,8 @@ public class BackgroundChanger : MonoBehaviour
     public static int homescreencounter = 0;
     public string gameScene = "CombatScene";
 
-    private float nextActionTime = 0.0f;
-    public float period = 1f;
+    //private float nextActionTime = 0.0f;
+    //public float period = 1f;
 
     void Start()
     {
@@ -39,22 +39,23 @@ public class BackgroundChanger : MonoBehaviour
     {
         BackgroundChange();
 
-        if(Input.anyKey){
-            nextActionTime = 0;
-        }
+        // if(Input.anyKey){
+        //     nextActionTime = 0;
+        // }
 
-        if(homescreencounter == 7 || homescreencounter == 10){
-            if (Time.time > nextActionTime ) {
-            nextActionTime += period;
-            // execute block of code here
+        // if(homescreencounter == 7 || homescreencounter == 10){
+        //     if (Time.time > nextActionTime ) {
+        //     nextActionTime += period;
+        //     // execute block of code here
 
-                if(nextActionTime >= 50){
-                    SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
-                }
-            }
-        }else{
-            nextActionTime = 0;
-        }
+        //         if(nextActionTime >= 50){
+        //             homescreencounter = 4;
+        //             nextActionTime = 0;
+        //         }
+        //     }
+        // }else{
+        //     nextActionTime = 0;
+        // }
     }
 
     void Awake(){   
@@ -206,7 +207,7 @@ public class BackgroundChanger : MonoBehaviour
             homescreencounter = 0; 
         }
         else{
-        homescreencounter++;
+            homescreencounter++;
         }
     }
 
