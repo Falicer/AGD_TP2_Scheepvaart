@@ -19,7 +19,6 @@ public class bulletCollision : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //audioSource.Stop();
-        Debug.Log("Collision");
         Destroy(gameObject);
         playerFinder.GetComponent<playerBehavior>().startingPlayer++;
 
@@ -40,7 +39,6 @@ public class bulletCollision : MonoBehaviour
     private IEnumerator WaitAndDestroy(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        Debug.Log("Waited for " + waitTime + " seconds");
         Destroy(gameObject);
         playerFinder.GetComponent<playerBehavior>().startingPlayer++;
         //audioSource.Stop();

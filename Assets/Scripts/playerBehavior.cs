@@ -47,14 +47,11 @@ public class playerBehavior : MonoBehaviour
             // execute block of code here
 
             if(nextActionTime == 150){
-                Debug.Log("Half-time");
             }
 
             if(nextActionTime >= 300){
-                Debug.Log("Afk Timed");
                 SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
-            }
-            
+            }  
         }
 
         playerDetection();
@@ -78,18 +75,4 @@ public class playerBehavior : MonoBehaviour
             startingPlayer = 1;
         }
     }
-
-
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if(collision.gameObject.name == "Britishship")
-    //     {
-    //         Debug.Log("Collision2");
-    //         startingPlayer = 2;
-    //     }else if(collision.gameObject.name == "Dutchship")
-    //     {
-    //         Debug.Log("Collision2");
-    //         startingPlayer = 1;
-    //     }
-    // }
 }

@@ -39,13 +39,16 @@ public class BackgroundChanger : MonoBehaviour
     {
         BackgroundChange();
 
+        if(Input.anyKey){
+            nextActionTime = 0;
+        }
+
         if(homescreencounter == 7 || homescreencounter == 10){
             if (Time.time > nextActionTime ) {
             nextActionTime += period;
             // execute block of code here
 
                 if(nextActionTime >= 50){
-                    Debug.Log("Game Start!");
                     SceneManager.LoadScene(gameScene, LoadSceneMode.Single);
                 }
             }
