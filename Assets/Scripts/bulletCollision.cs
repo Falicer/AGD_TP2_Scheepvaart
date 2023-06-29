@@ -7,6 +7,8 @@ public class bulletCollision : MonoBehaviour
     GameObject playerFinder;
     public AudioSource audioSource;
     public AudioClip clip;
+    public AudioClip clip2;
+    public AudioClip clip3;
     public float volume=0.5f;
 
     void Start(){
@@ -14,16 +16,28 @@ public class bulletCollision : MonoBehaviour
         playerFinder = GameObject.Find("BackgroundController");
         audioSource = GameObject.Find("soundsSource").GetComponent<AudioSource>();
         audioSource.Play();
+        //audioSource.PlayOneShot(clip, volume);
     }
  
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        audioSource.Stop();
-        Destroy(gameObject);
-        playerFinder.GetComponent<playerBehavior>().startingPlayer++;
+
+        if(collision.gameObject.tag == "battleship"){
+            //audioSource.PlayOneShot(clip2, volume);\
+            Destroy(gameObject);
+            playerFinder.GetComponent<playerBehavior>().startingPlayer++;
+
+        }else if(collision.gameObject.tag == "water"){
+            //audioSource.PlayOneShot(clip3, volume);
+            Destroy(gameObject);
+            playerFinder.GetComponent<playerBehavior>().startingPlayer++;
+        }else if(collision.gameObject.tag == "air"){
+            Destroy(gameObject);
+            playerFinder.GetComponent<playerBehavior>().startingPlayer++;
+        }
 
     }
-    
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         
