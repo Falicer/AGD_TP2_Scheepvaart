@@ -15,7 +15,6 @@ public class bulletCollision : MonoBehaviour
         StartCoroutine(WaitAndDestroy(3.0f));
         playerFinder = GameObject.Find("BackgroundController");
         audioSource = GameObject.Find("soundsSource").GetComponent<AudioSource>();
-        Debug.Log("play shot");
         audioSource.PlayOneShot(clip, volume);
     }
  
@@ -24,13 +23,11 @@ public class bulletCollision : MonoBehaviour
 
         if(collision.gameObject.tag == "battleship"){
             audioSource.PlayOneShot(clip2, volume);
-            Debug.Log("play impact");
             Destroy(gameObject);
             playerFinder.GetComponent<playerBehavior>().startingPlayer++;
 
         }else if(collision.gameObject.tag == "water"){
             audioSource.PlayOneShot(clip3, volume);
-            Debug.Log("play water");
             Destroy(gameObject);
             playerFinder.GetComponent<playerBehavior>().startingPlayer++;
         }else if(collision.gameObject.tag == "air"){
