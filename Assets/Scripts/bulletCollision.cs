@@ -15,20 +15,22 @@ public class bulletCollision : MonoBehaviour
         StartCoroutine(WaitAndDestroy(3.0f));
         playerFinder = GameObject.Find("BackgroundController");
         audioSource = GameObject.Find("soundsSource").GetComponent<AudioSource>();
-        audioSource.Play();
-        //audioSource.PlayOneShot(clip, volume);
+        Debug.Log("play shot");
+        audioSource.PlayOneShot(clip, volume);
     }
  
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
         if(collision.gameObject.tag == "battleship"){
-            //audioSource.PlayOneShot(clip2, volume);\
+            audioSource.PlayOneShot(clip2, volume);
+            Debug.Log("play impact");
             Destroy(gameObject);
             playerFinder.GetComponent<playerBehavior>().startingPlayer++;
 
         }else if(collision.gameObject.tag == "water"){
-            //audioSource.PlayOneShot(clip3, volume);
+            audioSource.PlayOneShot(clip3, volume);
+            Debug.Log("play water");
             Destroy(gameObject);
             playerFinder.GetComponent<playerBehavior>().startingPlayer++;
         }else if(collision.gameObject.tag == "air"){
