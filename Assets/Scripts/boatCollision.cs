@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class boatCollision : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class boatCollision : MonoBehaviour
     public SpriteRenderer SpriteRenderer;
     public SpriteRenderer boatsmokeRenderer;
     public SpriteRenderer boatsmoke2Renderer;
+    public TextMeshProUGUI boatHealth;
     public playerBehavior cs;
 
     // Start is called before the first frame update
@@ -42,15 +44,19 @@ public class boatCollision : MonoBehaviour
             SpriteRenderer.color = new Color(1f,1f,1f,1f);
             boatsmokeRenderer.color = new Color(1f,1f,1f,0f);
             boatsmoke2Renderer.color = new Color(1f,1f,1f,0f);
+            boatHealth.text = "100%";
         }else if(hitAmount == 1){
             SpriteRenderer.color = new Color(1f,1f,1f,0f);
             boatsmokeRenderer.color = new Color(1f,1f,1f,1f);
             boatsmoke2Renderer.color = new Color(1f,1f,1f,0f);
+            boatHealth.text = "66%";
         }else if(hitAmount == 2){
             SpriteRenderer.color = new Color(1f,1f,1f,0f);
             boatsmokeRenderer.color = new Color(1f,1f,1f,0f);
             boatsmoke2Renderer.color = new Color(1f,1f,1f,1f);
+            boatHealth.text = "33%";
         }else if(hitAmount == 3){
+            boatHealth.text = "0%";
             if(gameObject.name == "Dutchship"){
                 BackgroundChanger.homescreencounter = 8;
             }else if(gameObject.name == "Britishship"){

@@ -11,6 +11,8 @@ public class playerBehavior : MonoBehaviour
     public GameObject dutchCannon;
     public GameObject britShip;
     public GameObject britCannon;
+    public GameObject britArrow;
+    public GameObject dutchArrow;
     PolygonCollider2D dutchShipCollider;
     PolygonCollider2D britShipCollider;
     public string mainMenu;
@@ -66,12 +68,17 @@ public class playerBehavior : MonoBehaviour
             britCannon.SetActive(false);
             britShipCollider.enabled = true;
             dutchShipCollider.enabled = false;
+            dutchArrow.SetActive(true);
+            britArrow.SetActive(false);
             
         }else if(startingPlayer == 2){
             dutchCannon.SetActive(false);
             britCannon.SetActive(true);
             britShipCollider.enabled = false;
             dutchShipCollider.enabled = true;
+            dutchArrow.SetActive(false);
+            britArrow.SetActive(true);
+
         }else{
             startingPlayer = 1;
         }
